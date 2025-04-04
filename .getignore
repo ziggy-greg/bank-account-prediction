@@ -1,0 +1,5 @@
+# ignore virtual environment venv/
+#ignore Mac system file.DS_store
+#ignore model artifacts if needed *.pkl
+#ignore dataset (optional if you want a cleaner repo)*.csv
+#
