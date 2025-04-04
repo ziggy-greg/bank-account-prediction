@@ -29,19 +29,21 @@ job = st.selectbox("Job Type", ['Self employed', 'Government Dependent', 'Formal
 if st.button("Predict Bank Account", use_container_width=True):
     # Create DataFrame
     input_df = pd.DataFrame({
-        'location_type': [location],
-        'cellphone_access': [cellphone],
-        'household_size': [household_size],
-        'age_of_respondent': [age],
-        'gender_of_respondent': [gender],
-        'relationship_with_head': [relationship],
-        'marital_status': [marital],
-        'education_level': [education],
-        'job_type': [job]
-    })
-
-    # Apply Label Encoders
+    'country': [country],
+    'year': [year],
+    'uniqueid': [uniqueid],
+    'location_type': [location],
+    'cellphone_access': [cellphone],
+    'household_size': [household_size],
+    'age_of_respondent': [age],
+    'gender_of_respondent': [gender],
+    'relationship_with_head': [relationship],
+    'marital_status': [marital],
+    'education_level': [education],
+    'job_type': [job]
+})
     for col in encoders:
+     if col in input_df.columns:
         input_df[col] = encoders[col].transform(input_df[col])
 
     # Predict
