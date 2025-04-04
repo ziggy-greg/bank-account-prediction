@@ -15,6 +15,10 @@ st.markdown("<p style='text-align: center;'>Predict if an individual is likely t
 st.markdown("---")
 
 # --- User Inputs ---
+# Add these fields before Predict Button
+country = st.text_input("Country", "Kenya")
+year = st.number_input("Year", min_value=2000, max_value=2030, value=2018)
+uniqueid = st.text_input("Unique ID", "uniqueid_123")
 location = st.selectbox("Location Type", ['Urban', 'Rural'])
 cellphone = st.selectbox("Cellphone Access", ['Yes', 'No'])
 household_size = st.number_input("Household Size", min_value=1, max_value=30)
@@ -29,6 +33,7 @@ job = st.selectbox("Job Type", ['Self employed', 'Government Dependent', 'Formal
 if st.button("Predict Bank Account", use_container_width=True):
     # Create DataFrame
     input_df = pd.DataFrame({
+       
     'Country': [country],
     'Year': [year],
     'Uniqueid': [uniqueid],
