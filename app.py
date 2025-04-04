@@ -34,19 +34,21 @@ if st.button("Predict Bank Account", use_container_width=True):
     # Create DataFrame
     input_df = pd.DataFrame({
        
-    'Country': [country],
-    'Year': [year],
-    'Uniqueid': [uniqueid],
-    'Location_type': [location],
-    'Cellphone_access': [cellphone],
-    'Household_size': [household_size],
-    'Age_of_respondent': [age],
-    'Gender_of_respondent': [gender],
-    'Relationship_with_head': [relationship],
-    'Marital_status': [marital],
-    'Education_level': [education],
-    'Job_type': [job]
+    
+    'country': [country],
+    'year': [year],
+    'uniqueid': [uniqueid],
+    'location_type': [location],
+    'cellphone_access': [cellphone],
+    'household_size': [household_size],
+    'age_of_respondent': [age],
+    'gender_of_respondent': [gender],
+    'relationship_with_head': [relationship],
+    'marital_status': [marital],
+    'education_level': [education],
+    'job_type': [job]
 })
+
     for col in encoders:
      if col in input_df.columns:
         input_df[col] = encoders[col].transform(input_df[col])
